@@ -167,10 +167,10 @@ class AliceCallListItemWidget extends StatelessWidget {
   }
 
   Color? _getStatusTextColor(BuildContext context) {
-    final int? status = call.response!.status;
+    final int status = call.response!.status??0;
     if (status == -1) {
       return AliceConstants.red;
-    } else if (status! < 200) {
+    } else if (status < 200) {
       return Theme.of(context).textTheme.bodyText1!.color;
     } else if (status >= 200 && status < 300) {
       return AliceConstants.green;
